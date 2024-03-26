@@ -17,7 +17,6 @@ function App() {
   const getVoteCount = async () => {
     try {
       const response = await axiosInstance.get("api/vote-count");
-      console.log(count);
       setCount(response.data.count);
     } catch (error) {
       console.error(`Error while fetching vote count: ${error}`);
@@ -41,7 +40,6 @@ function App() {
       <h1>{`Vote count: ${count}`}</h1>
       <Button onClick={() => handleVote("downvote")}>-</Button>
       <Button onClick={() => handleVote("upvote")}>+</Button>
-      <Button onClick={() => getVoteCount}>Test</Button>
     </>
   );
 }
