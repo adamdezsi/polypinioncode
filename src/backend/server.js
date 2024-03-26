@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+import cors from "cors";
 
 const app = express();
 const PORT = 3030;
@@ -21,6 +22,7 @@ const doubleVotingEasyFilter = (req, res, next) => {
 
 // json parsing middleware
 app.use(bodyParser.json());
+app.use(cors);
 
 app.get("/api/vote-count", (req, res) => {
   res.json({ count: count });
